@@ -1,5 +1,3 @@
-import Vue from "vue";
-
 const TODOS_KEY = 'todos';
 
 export default {
@@ -14,10 +12,10 @@ export default {
             localStorage.setItem(TODOS_KEY, JSON.stringify(state.todos));
         }
     },
-    updateTodo(state, { id, updatedTodo }) {
-        const index = state.todos.findIndex(todo => todo.id === id);
+    updateTodo(state, { updatedTodo }) {
+        const index = state.todos.findIndex(todo => todo.id === updatedTodo.id);
         if (index !== -1) {
-            Vue.set(state.todos, index, { ...state.todos[index], ...updatedTodo });
+            state.todos.splice(index, 1, updatedTodo);
             localStorage.setItem(TODOS_KEY, JSON.stringify(state.todos));
         }
     }

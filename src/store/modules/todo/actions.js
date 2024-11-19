@@ -5,7 +5,7 @@ export default {
     removeTodo({ commit }, todoId) {
         commit('removeTodo', todoId);
     },
-    updateTodo({ commit }, { id, updatedTodo }) {
-        commit('updateTodo', { id, updatedTodo });
+    updateTodo({ commit }, updatedTodo ) {
+        commit('updateTodo', { updatedTodo });
     }
 }
